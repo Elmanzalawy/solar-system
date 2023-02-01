@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 
 const skyBoxes = [
-    'ulukai/corona',
-    'ulukai/redeclipse'
+    'skybox3/corona',
+    'skybox4/redeclipse'
 ];
 
 class Skybox {
@@ -24,7 +24,6 @@ class Skybox {
         const fileType = ".png";
         const sides = ["ft", "bk", "up", "dn", "rt", "lf"];
         const pathStrings = sides.map(side => {
-            console.log(filename + "_" + side + fileType);
             return filename + "_" + side + fileType;
         });
 
