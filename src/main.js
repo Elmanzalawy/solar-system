@@ -48,8 +48,11 @@ const sun = new Solarbody({
   material: new THREE.MeshStandardMaterial({ emissive: 0xFFFF00 }),
   scale: 5
 });
+sun.update = function() {
+  this.orbit.rotation.y += 0.002;
+}
 
-objects.push(sun.orbit);
+objects.push(sun);
 
 const earth = new Solarbody({
   scene: sun.orbit,
@@ -57,7 +60,7 @@ const earth = new Solarbody({
   scale:1
 })
 earth.orbit.position.x = 10;
-objects.push(earth.orbit);
+objects.push(earth);
 
 
 const moon = new Solarbody({
@@ -66,27 +69,27 @@ const moon = new Solarbody({
   scale: 0.4
 });
 moon.orbit.position.x = 2.5;
-objects.push(moon.orbit);
+objects.push(moon);
 
 // add an AxesHelper to each node
 objects.forEach((node) => {
   const axes = new THREE.AxesHelper();
   axes.material.depthTest = false;
   axes.renderOrder = 1;
-  node.add(axes);
+  node.orbit.add(axes);
 });
 
 
 // 3D Object
 const loader = new GLTFLoader();
-loader.load('free_cyberpunk_hovercar/scene.gltf', function (gltf) {
+loader.load('assets/models/free_cyberpunk_hovercar/scene.gltf', function (gltf) {
   scene.add(gltf.scene);
   gltf.scene.position.z = 20;
 }, undefined, function (error) {
   console.error(error);
 });
 
-loader.load('galaxy/scene.gltf', function (gltf) {
+loader.load('assets/models/galaxy/scene.gltf', function (gltf) {
   gltf.scene.position.y = -60;
   gltf.scene.position.x = -100;
   gltf.scene.position.z = 100;
@@ -114,10 +117,10 @@ window.addEventListener('resize', () => {
 
 const animate = () => {
   controls.update();
-
   objects.forEach((obj) => {
-    obj.rotation.y += 0.01;
+    obj.update();
   });
+  
   renderer.render(scene, camera);
   window.requestAnimationFrame(animate);
 }

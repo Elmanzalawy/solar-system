@@ -13,6 +13,10 @@ class Solarbody{
 
         this.orbit.add(mesh);
     }
+
+    update(){
+        this.orbit.rotation.y += 0.01;
+    }
 }
 export{
     Solarbody
