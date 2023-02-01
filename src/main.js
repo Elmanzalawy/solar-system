@@ -2,11 +2,14 @@ import './style.css';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { Scene } from './scene/scene';
+import {Skybox, randomSkybox} from './scene/skybox';
 import { Controls } from './scene/controls';
 import { Solarbody } from './solarbodies/solarbody';
+
 // Scene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('black');
+const skybox = new Skybox(randomSkybox());
+scene.add(skybox);
 
 // Sizes
 const sizes = {
@@ -15,14 +18,14 @@ const sizes = {
 };
 
 // Light
-const light = new THREE.PointLight(0xffffff, 1, 100);
-light.position.set(0, 10, 10);
+const light = new THREE.PointLight(0xffffff, 2, 100, 1);
+light.position.set(0, 0, 0);
 // var ambientLight = new THREE.AmbientLight( 0xffffff, 0.1 );
 // scene.add( ambientLight );
 scene.add(light);
 
 // Camera
-const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 500);
+const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 99999);
 camera.position.set(0, 50, 0);
 camera.up.set(0, 1, 1);
 camera.lookAt(0, 0, 0);
@@ -96,7 +99,7 @@ loader.load('assets/models/galaxy/scene.gltf', function (gltf) {
 
   gltf.scene.scale.set(60, 30, 60);
 
-  scene.add(gltf.scene);
+  // scene.add(gltf.scene);
 }, undefined, function (error) {
   console.error(error);
 });
