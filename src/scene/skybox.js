@@ -1,37 +1,37 @@
 import * as THREE from 'three';
 
 const skyBoxes = [
-    'skybox3/corona',
-    'skybox4/redeclipse'
+    'skybox1',
+    'skybox2',
 ];
 
 class Skybox {
 
-    constructor(filename) {
-        this.filename = filename
-        this.baseFilename = "../../assets/images/skyboxes/" + this.filename;
+    constructor(folderName) {
+        this.folderName = folderName
+        this.baseFolderName = `../../assets/images/skyboxes/${this.folderName}/`;
 
         return this.render();
     }
 
     render() {
-        const materialArray = this.createMaterialArray(this.baseFilename);
+        const materialArray = this.createMaterialArray(this.baseFolderName);
         const skyboxGeo = new THREE.BoxGeometry(99999, 99999, 99999);
         return new THREE.Mesh(skyboxGeo, materialArray);
     }
 
-    createPathStrings(filename) {
+    createPathStrings(folderName) {
         const fileType = ".png";
-        const sides = ["ft", "bk", "up", "dn", "rt", "lf"];
+        const sides = [1, 2, 3, 4, 5, 6];
         const pathStrings = sides.map(side => {
-            return filename + "_" + side + fileType;
+            return folderName + side + fileType;
         });
 
         return pathStrings;
     }
 
-    createMaterialArray(filename) {
-        const skyboxImagepaths = this.createPathStrings(filename);
+    createMaterialArray(folderName) {
+        const skyboxImagepaths = this.createPathStrings(folderName);
         const materialArray = skyboxImagepaths.map(image => {
             let texture = new THREE.TextureLoader().load(image);
 
