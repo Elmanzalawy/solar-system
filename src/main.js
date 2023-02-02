@@ -1,4 +1,5 @@
 import './style.css';
+import {asset, image} from '~util'
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { Scene } from './scene/scene';
@@ -48,27 +49,28 @@ const sphereGeometry = new THREE.SphereGeometry(
 
 const sun = new Solarbody({
   scene: scene,
-  material: new THREE.MeshStandardMaterial({ emissive: 0xFFFF00 }),
+  textureImage: image("solarbodies/2k_sun.jpg"),
   scale: 5
 });
 sun.update = function() {
-  this.orbit.rotation.y += 0.002;
+  this.orbit.rotation.y += 0.001;
 }
 
 objects.push(sun);
 
 const earth = new Solarbody({
   scene: sun.orbit,
-  material: new THREE.MeshPhongMaterial({ color: 0x2233FF, emissive: 0x112244 }),
+  textureImage: image("solarbodies/2k_earth_day.jpg"),
   scale:1
 })
+earth.createAtmosphere();
 earth.orbit.position.x = 10;
 objects.push(earth);
 
 
 const moon = new Solarbody({
   scene: earth.orbit,
-  material: new THREE.MeshPhongMaterial({ color: 0x888888, emissive: 0x222222 }),
+  textureImage: image("solarbodies/2k_moon.jpg"),
   scale: 0.4
 });
 moon.orbit.position.x = 2.5;
