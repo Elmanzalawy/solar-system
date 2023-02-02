@@ -1,9 +1,11 @@
 ## TODO
-- Add skybox
-- Add shaders to solarbodies
+- Add rest of solar bodies
+- Fix solar body rotation issue
+- Add solar bodies seeder
 - Create Ship class
 
 ## Resources
 - [threejs.org](https://threejs.org/)
 - [opengameart.org](https://opengameart.org/)
 - [solarsystemscope.com](https://www.solarsystemscope.com/textures/)
+- [threejs collission detection](https://www.youtube.com/watch?v=9H3HPq-BTMo&ab_channel=flanniganable)
