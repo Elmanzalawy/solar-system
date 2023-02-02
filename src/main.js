@@ -88,7 +88,7 @@ objects.forEach((node) => {
 // 3D Object
 const loader = new GLTFLoader();
 loader.load('assets/models/free_cyberpunk_hovercar/scene.gltf', function (gltf) {
-  scene.add(gltf.scene);
+  // scene.add(gltf.scene);
   gltf.scene.position.z = 20;
 }, undefined, function (error) {
   console.error(error);
