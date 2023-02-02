@@ -10,6 +10,10 @@ class Controls{
         // controls.autoRotateSpeed = 3;
         return controls;
     }
+    
+    update(){
+        this.controls.update();
+    }
 }
 export{
     Controls
