@@ -60,7 +60,7 @@ class Solarbody{
 
     update(){
         if(this.orbit){
-            this.object.rotation.y += this.orbit.orbitalVelocity ?? 0;
+            this.object.rotation.y += this.orbit.orbitVelocity ?? 0;
         }
         this.solarbody.rotation.y += 0.003;
     }

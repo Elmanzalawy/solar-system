@@ -25,7 +25,7 @@
                             "y": 0,
                             "z": 6
                         },
-                        "orbitalVelocity": 0.0005
+                        "orbitVelocity": 0.0005
                     }
                 },
                 {
@@ -39,7 +39,7 @@
                             "y": 0,
                             "z": 10
                         },
-                        "orbitalVelocity": 0.002
+                        "orbitVelocity": 0.002
                     }
                 },
                 {
@@ -54,7 +54,7 @@
                             "y": 0,
                             "z": 15
                         },
-                        "orbitalVelocity": 0.001
+                        "orbitVelocity": 0.001
                     },
                     "children": [
                         {
@@ -68,7 +68,7 @@
                                     "y": 0,
                                     "z": 2
                                 },
-                                "orbitalVelocity": 0.005
+                                "orbitVelocity": 0.005
                             },
                             "children": []
                         }
