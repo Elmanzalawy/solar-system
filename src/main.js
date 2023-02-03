@@ -74,7 +74,7 @@ function init() {
       const skybox = new Skybox(seeder.skybox);
       scene.add(skybox);      
       solarbodiesController.seedSolarbodies({ scene, seeder});
-      solarbodiesController.addAxesHelper();
+      // solarbodiesController.addAxesHelper();
     });
   animate();
 }
