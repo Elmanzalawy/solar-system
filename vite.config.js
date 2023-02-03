@@ -4,7 +4,18 @@ import path from 'path'
 
 export default defineConfig({
     plugins: [
-        vitePluginString()
+        vitePluginString(),
+        {
+            name: 'json',
+            handleHotUpdate({ file, server }) {
+                if (file.endsWith('.json')) {
+                    server.ws.send({
+                        type: 'full-reload',
+                        path: '*',
+                    });
+                }
+            },
+        },
     ],
     resolve: {
         alias: {

@@ -1,18 +1,15 @@
 import './style.css';
-import { image, dimensions } from '~util'
+import { asset, dimensions } from '~util'
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { Skybox, randomSkybox } from './scene/skybox';
+import { Skybox } from './scene/skybox';
 import { Controls } from './scene/controls';
 import { Camera } from './scene/camera';
-import { Solarbody } from './solarbodies/solarbody';
 import { SolarbodiesController } from './solarbodies/solarbodiesController';
 
 // Scene
 const canvas = document.querySelector('#webgl');
 const scene = new THREE.Scene();
-const skybox = new Skybox(randomSkybox());
-scene.add(skybox);
 
 // Light
 const light = new THREE.PointLight(0xffffff, 2, 300, 1);
@@ -71,8 +68,14 @@ window.addEventListener('resize', () => {
 
 function init() {
   // Render solarbodies
-  solarbodiesController.initSolarbodies({ scene });
-  solarbodiesController.addAxesHelper();
+  fetch(asset('seeders/galaxies/sol.json'))
+    .then((response) => response.json())
+    .then(function(seeder){
+      const skybox = new Skybox(seeder.skybox);
+      scene.add(skybox);      
+      solarbodiesController.seedSolarbodies({ scene, seeder});
+      solarbodiesController.addAxesHelper();
+    });
   animate();
 }
 

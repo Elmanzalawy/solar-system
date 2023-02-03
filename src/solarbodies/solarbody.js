@@ -1,18 +1,24 @@
 import * as THREE from 'three';
-import vertexShader from '../../assets/shaders/vertex.glsl'
-import fragmentShader from '../../assets/shaders/fragment.glsl'
+import { image } from '../util';
 import atmosphereVertexShader from '../../assets/shaders/atmosphereVertex.glsl'
 import atmosphereFragmentShader from '../../assets/shaders/atmosphereFragment.glsl'
 
 class Solarbody{
     constructor(options){
-        const sphereGeometry = options?.geometry ?? new THREE.SphereGeometry(1, 64, 64);
-        const material = options?.material ?? new THREE.MeshStandardMaterial({
-            map: new THREE.TextureLoader().load(options.textureImage)
+        this.type = options.type ?? "solarbody";
+        this.sphereGeometry = options?.geometry ?? new THREE.SphereGeometry(1, 64, 64);
+        this.material = options?.material ?? new THREE.MeshStandardMaterial({
+            map: new THREE.TextureLoader().load(image(options.textureImage))
         });
-        this.solarbody = new THREE.Mesh(sphereGeometry, material);
+        this.solarbody = new THREE.Mesh(this.sphereGeometry, this.material);
         this.object = new THREE.Object3D();
         this.object.add(this.solarbody);
+
+        if(options.position){
+            this.object.position.x = options.position.x;
+            this.object.position.y = options.position.y;
+            this.object.position.z = options.position.z;
+        }
         
         if(options.scale){
             this.solarbody.scale.set(options.scale, options.scale, options.scale); 
@@ -29,6 +35,9 @@ class Solarbody{
             this.object.position.z = this.orbit.solarbody.position.z;
         }
 
+        if(options.hasAtmosphere){
+            this.createAtmosphere();
+        }
 
         options.scene.add(this.object);
     }
@@ -50,7 +59,9 @@ class Solarbody{
     }
 
     update(){
-        this.object.rotation.y += this.orbit.orbitalVelocity ?? 0;
+        if(this.orbit){
+            this.object.rotation.y += this.orbit.orbitalVelocity ?? 0;
+        }
         this.solarbody.rotation.y += 0.003;
     }
 }

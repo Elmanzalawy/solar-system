@@ -1,0 +1,80 @@
+{
+    "name": "Sol",
+    "skybox": "skybox1",
+    "solarbodies": [
+        {
+            "name": "Sun",
+            "type": "sun",
+            "textureImage": "solarbodies/2k_sun.jpg",
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "orbit": null,
+            "scale": 5,
+            "children": [
+                {
+                    "name": "Mercury",
+                    "type": "planet",
+                    "textureImage": "solarbodies/2k_mercury.jpg",
+                    "scale": 0.6,
+                    "orbit": {
+                        "orbitDistance": {
+                            "x": 6,
+                            "y": 0,
+                            "z": 6
+                        },
+                        "orbitalVelocity": 0.0005
+                    }
+                },
+                {
+                    "name": "Venus",
+                    "type": "planet",
+                    "textureImage": "solarbodies/2k_venus.jpg",
+                    "scale": 0.8,
+                    "orbit": {
+                        "orbitDistance": {
+                            "x": 10,
+                            "y": 0,
+                            "z": 10
+                        },
+                        "orbitalVelocity": 0.002
+                    }
+                },
+                {
+                    "name": "Earth",
+                    "type": "planet",
+                    "textureImage": "solarbodies/2k_earth_day.jpg",
+                    "scale": 1,
+                    "hasAtmosphere":1,
+                    "orbit": {
+                        "orbitDistance": {
+                            "x": 15,
+                            "y": 0,
+                            "z": 15
+                        },
+                        "orbitalVelocity": 0.001
+                    },
+                    "children": [
+                        {
+                            "name": "Moon",
+                            "type": "moon",
+                            "textureImage": "solarbodies/2k_moon.jpg",
+                            "scale": 0.5,
+                            "orbit": {
+                                "orbitDistance": {
+                                    "x": 2,
+                                    "y": 0,
+                                    "z": 2
+                                },
+                                "orbitalVelocity": 0.005
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
