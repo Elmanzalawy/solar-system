@@ -19,23 +19,18 @@ class Solarbody{
         }
 
         if(options.orbit){
-            this.solarbody.position.x += options.orbit.orbitDistance.x;
-            this.solarbody.position.y += options.orbit.orbitDistance.y;
-            this.solarbody.position.z += options.orbit.orbitDistance.z;
+            this.orbit = options.orbit;
+            this.solarbody.position.x += this.orbit.orbitDistance.x;
+            this.solarbody.position.y += this.orbit.orbitDistance.y;
+            this.solarbody.position.z += this.orbit.orbitDistance.z;
             
-            this.object.position.x = options.orbit.solarbody.position.x;
-            this.object.position.y = options.orbit.solarbody.position.y;
-            this.object.position.z = options.orbit.solarbody.position.z;
-
-            this.orbitalVelocity = options.orbit.orbitalVelocity;
+            this.object.position.x = this.orbit.solarbody.position.x;
+            this.object.position.y = this.orbit.solarbody.position.y;
+            this.object.position.z = this.orbit.solarbody.position.z;
         }
 
 
         options.scene.add(this.object);
-
-        // add orbit
-        this.orbit = new THREE.Object3D();
-        options.scene.add(this.orbit);
     }
 
     createAtmosphere(){
@@ -55,7 +50,7 @@ class Solarbody{
     }
 
     update(){
-        this.object.rotation.y += this.orbitalVelocity ?? 0;
+        this.object.rotation.y += this.orbit.orbitalVelocity ?? 0;
         this.solarbody.rotation.y += 0.003;
     }
 }
