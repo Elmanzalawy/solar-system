@@ -15,9 +15,12 @@ const skybox = new Skybox(randomSkybox());
 scene.add(skybox);
 
 // Light
-const light = new THREE.PointLight(0xffffff, 2, 100, 1);
+const light = new THREE.PointLight(0xffffff, 2, 300, 1);
 light.position.set(0, 0, 0);
 scene.add(light);
+
+const ambientLight = new THREE.AmbientLight(0x333333, 1);
+scene.add(ambientLight);
 
 // Camera
 const camera = new Camera();
@@ -55,6 +58,16 @@ const solarbodiesController = new SolarbodiesController();
 //   console.error(error);
 // });
 
+window.addEventListener('resize', () => {
+  // Update dimensions
+  dimensions().width = window.innerWidth;
+  dimensions().height = window.innerHeight;
+
+  // Update Camera
+  camera.aspect = dimensions().width / dimensions().height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(dimensions().width, dimensions().height);
+})   
 
 function init() {
   // Render solarbodies
