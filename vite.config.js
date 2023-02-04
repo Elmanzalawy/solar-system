@@ -3,6 +3,7 @@ import vitePluginString from 'vite-plugin-string'
 import path from 'path'
 
 export default defineConfig({
+    base:'/solar-system-simulator/',
     plugins: [
         vitePluginString(),
         {
