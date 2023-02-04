@@ -1,11 +1,24 @@
-## TODO
-- Add rest of solar bodies
-- Add solar bodies seeder
-- Create Ship class
+## About
+Solar System Sim is a web app designed to explore the solar system in an interactive 3D environment.
+
+## Usage
+
+#### Mobile
+- Tab and hold to rotate camera.
+- Tab and hold 2 fingers to move camera and zoom in/out.
+
+#### PC
+-  Hold Left mouse button to rotate camera.
+-  Hold right mouse to move camera.
+-  Use mouse scroll to zoom in/out.
 
 ## Resources
 - [threejs.org](https://threejs.org/)
 - [opengameart.org](https://opengameart.org/)
 - [solarsystemscope.com](https://www.solarsystemscope.com/textures/)
-- [threejs collission detection](https://www.youtube.com/watch?v=9H3HPq-BTMo&ab_channel=flanniganable)
-- [Wael Yasmina (Based Youtuber)](https://www.youtube.com/@WaelYasmina)
+- [Wael Yasmina](https://www.youtube.com/@WaelYasmina)
+
+---
+
+## Support
+- [Buy me a coffee ☕](https://www.buymeacoffee.com/elmanzalawy01)
