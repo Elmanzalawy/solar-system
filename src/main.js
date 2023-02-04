@@ -1,7 +1,6 @@
 import './style.css';
 import { asset, dimensions } from './util'
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { Skybox } from './scene/skybox';
 import { Controls } from './scene/controls';
 import { Camera } from './scene/camera';
