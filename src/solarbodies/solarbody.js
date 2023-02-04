@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { image } from '../util';
+import { image, getMobileOperatingSystem } from '../util';
 import atmosphereVertexShader from '../../assets/shaders/atmosphereVertex.glsl'
 import atmosphereFragmentShader from '../../assets/shaders/atmosphereFragment.glsl'
 
@@ -7,9 +7,16 @@ class Solarbody{
     constructor(options){
         this.type = options.type ?? "solarbody";
         this.sphereGeometry = options?.geometry ?? new THREE.SphereGeometry(1, 64, 64);
-        this.material = options?.material ?? new THREE.MeshStandardMaterial({
-            map: new THREE.TextureLoader().load(image(options.textureImage))
-        });
+
+        if(getMobileOperatingSystem() == "Android"){
+            this.material = options?.material ?? new THREE.MeshBasicMaterial({
+                map: new THREE.TextureLoader().load(image(options.textureImage))
+            });
+        }else{
+            this.material = options?.material ?? new THREE.MeshStandardMaterial({
+                map: new THREE.TextureLoader().load(image(options.textureImage))
+            });
+        }
         this.solarbody = new THREE.Mesh(this.sphereGeometry, this.material);
         this.object = new THREE.Object3D();
         this.object.add(this.solarbody);
