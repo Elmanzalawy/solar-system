@@ -2,8 +2,47 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 body, html{
   overflow-x: hidden;
   overflow-y: hidden;
+}
+.font-mono{
+  font-family: monospace;
+}
+.font-mont{
+  font-family: 'Montserrat';
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Montserrat';
+}
+#navbar, footer{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+}
+#footer{
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+}
+#navbar .links a{
+  margin: 0 1rem;
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
 }
