@@ -1,3 +1,5 @@
+import { env } from "../env";
+
 function dimensions() {
     return {
         width: window.innerWidth,
@@ -6,7 +8,7 @@ function dimensions() {
 };
 
 function asset(filepath) {
-    var root = document.location.origin;
+    var root = env.getHost() ?? document.location.origin;
     return `${root}/assets/${filepath}`;
 }
 
