@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { image, getMobileOperatingSystem } from '../util';
-import atmosphereVertexShader from '../../assets/shaders/atmosphereVertex.glsl'
-import atmosphereFragmentShader from '../../assets/shaders/atmosphereFragment.glsl'
+import atmosphereVertexShader from '../../storage/shaders/atmosphereVertex.glsl'
+import atmosphereFragmentShader from '../../storage/shaders/atmosphereFragment.glsl'
 
 class Solarbody{
     constructor(options){

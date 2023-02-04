@@ -9,7 +9,7 @@ class Skybox {
 
     constructor(folderName) {
         this.folderName = folderName
-        this.baseFolderName = `../../assets/images/skyboxes/${this.folderName}/`;
+        this.baseFolderName = `../../storage/images/skyboxes/${this.folderName}/`;
 
         return this.render();
     }

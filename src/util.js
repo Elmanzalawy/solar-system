@@ -8,8 +8,8 @@ function dimensions() {
 };
 
 function asset(filepath) {
-    var root = env.getHost() ?? document.location.origin;
-    return `${root}/assets/${filepath}`;
+    var root = /*env.getHost() ??*/ document.location.origin;
+    return `${root}/storage/${filepath}`;
 }
 
 function image(filepath) {
