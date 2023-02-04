@@ -46,7 +46,7 @@ window.addEventListener('resize', () => {
 
 function init() {
   // Render solarbodies
-  fetch(asset('seeders/galaxies/sol.json'))
+  fetch(asset('./seeders/galaxies/sol.json'))
     .then((response) => response.json())
     .then(function(seeder){
       const skybox = new Skybox(seeder.skybox);
