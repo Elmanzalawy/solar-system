@@ -1,28 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <title>Solar System</title>
-  </head>
-  <body>
-    <nav id="navbar">
-      <h2 id="brand">Solar System</h2>
-      <div class="links font-mont">
-        <a href="#">About</a>
-      </div>
-    </nav>
-    <div id="app">
-      <canvas id="webgl"></canvas>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat|Roboto' rel='stylesheet'>
+  <title>Solar System Sim</title>
+</head>
+
+<body>
+  <nav id="navbar">
+    <h2 id="brand">Solar System Sim</h2>
+    <div class="links font-mont">
+      <a href="#" onclick="openModal()">About</a>
     </div>
-    <footer id="footer">
-            <div id="navbar-left">
-        <span class="font-mono">Made with <span style="color:red;">❤</span> by <a href="http://elmanzalawy.github.io/" target="_bla
-          ">Mohamed Elmanzalawy</a></span>
+  </nav>
+  <div id="app">
+    <canvas id="webgl"></canvas>
+  </div>
+  <div id="about-modal" style="display:block;">
+    <div class="modal-overlay">
+      <div class="modal-body">
+
       </div>
-    </footer>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    </div>
+  </div>
+
+  <div id="simpleModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="closeBtn"> &times;</span>
+        <h2 class="text-center">About</h2>
+      </div>
+      <div class="modal-body">
+        <div>
+          <p><strong>Solar System Sim</strong> is a web app designed to explore the solar system in an interactive 3D
+            environment.</p>
+        </div>
+
+        <div class="section">
+          <h2 class="text-center">Usage</h2>
+          <h3>Mobile</h3>
+          <ul>
+            <li>Tab and hold to rotate camera.</li>
+            <li>Tab and hold 2 fingers to move camera and zoom in/out.</li>
+          </ul>
+          <br>
+          <h3>PC</h3>
+          <ul>
+            <li>Hold Left mouse button to rotate camera.</li>
+            <li>Hold right mouse to move camera.</li>
+            <li>Use mouse scroll to zoom in/out.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2 class="text-center">Resources</h2>
+          <p>Made with <a href="https://threejs.org/" target="_blank">Three.js</a></p>
+          <p>Assets by <a href="https://www.solarsystemscope.com/textures/" target="_blank">solarsystemscope.com</a></p>
+          <p>Credits to <a href="https://www.youtube.com/@WaelYasmina" target="_blank">Wael Yasmina</a> for the great Three.js tutorials.</p>
+          <p>Source code: <a href="https://github.com/Elmanzalawy/solar-system-simulator"
+              target="_blank">Elmanzalawy/solar-system-simulator</a></p>
+        </div>
+        <div class="section">
+          <a href="https://www.buymeacoffee.com/elmanzalawy01" target="_blank">Buy me a coffee ☕</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div id="navbar-left">
+      <span class="font-mono">Made with <span style="color:red;">❤</span> by <a href="http://elmanzalawy.github.io/"
+          target="_blank">Mohamed Elmanzalawy</a></span>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+  <script defer>
+    let modal = document.getElementById('simpleModal');
+    let closeBtn = document.getElementsByClassName('closeBtn')[0];
+
+    closeBtn.addEventListener('click', closeModal);
+    window.addEventListener('click', outsideClick);
+
+    // Open modal
+    function openModal() {
+      modal.style.display = 'block';
+    }
+
+    // Close modal
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    // Click outside and close
+    function outsideClick(e) {
+      if (e.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+
 </html>

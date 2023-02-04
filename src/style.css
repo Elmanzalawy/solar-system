@@ -3,16 +3,18 @@
   padding: 0;
   box-sizing: border-box;
   user-select: none;
+  font-family: 'Roboto';
+  --primary:var
 }
 body, html{
   overflow-x: hidden;
   overflow-y: hidden;
 }
 .font-mono{
-  font-family: monospace;
+  font-family: monospace !important;
 }
 .font-mont{
-  font-family: 'Montserrat';
+  font-family: 'Montserrat' !important;
 }
 h1,h2,h3,h4,h5,h6{
   font-family: 'Montserrat';
@@ -45,4 +47,70 @@ a{
 }
 a:hover{
   text-decoration: underline;
+}
+.text-center{
+  text-align: center;
+}
+
+.section{
+  margin-top: 2rem;
+}
+.section a{
+  color: navy;
+}
+
+ul li{
+  list-style-position: inside;
+}
+.modal-overlay{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 40%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+}
+
+.modal-header h2, .modal-footer h3{
+  margin: 0;
+}
+.modal-content h2,h3,h4,h5,h6{
+  margin-bottom: 0.5rem;
+  color: navy;
+}
+
+.closeBtn{
+  position: absolute;
+  top: 0.25rem;
+  right: 0.75rem;
+  font-size: 30px;
+  color: red;
+  float: right;
+}
+
+.closeBtn:hover,.closeBtn:focus{
+  color: #e439ef;
+  text-decoration: none;
+  cursor:  pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content{
+    width: 90%;
+  }
 }
