@@ -1,5 +1,5 @@
 import './style.css';
-import { asset, dimensions } from '~util'
+import { asset, dimensions } from './util'
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { Skybox } from './scene/skybox';
