@@ -34,27 +34,6 @@ let controls = new Controls(camera, canvas);
 // Solarbodies Controller
 const solarbodiesController = new SolarbodiesController();
 
-// // 3D Object
-// const loader = new GLTFLoader();
-// loader.load('assets/models/free_cyberpunk_hovercar/scene.gltf', function (gltf) {
-//   // scene.add(gltf.scene);
-//   gltf.scene.position.z = 20;
-// }, undefined, function (error) {
-//   console.error(error);
-// });
-
-// loader.load('assets/models/galaxy/scene.gltf', function (gltf) {
-//   gltf.scene.position.y = -60;
-//   gltf.scene.position.x = -100;
-//   gltf.scene.position.z = 100;
-
-//   gltf.scene.scale.set(60, 30, 60);
-
-//   // scene.add(gltf.scene);
-// }, undefined, function (error) {
-//   console.error(error);
-// });
-
 window.addEventListener('resize', () => {
   // Update dimensions
   dimensions().width = window.innerWidth;
