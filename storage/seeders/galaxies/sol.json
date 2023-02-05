@@ -176,6 +176,10 @@
                             "z": 60
                         },
                         "orbitVelocity": 0.0002
+                    },
+                    "ring":{
+                        "width":5,
+                        "textureImage":"solarbodies/saturn_ring.png"
                     }
                 },
                 {
@@ -185,11 +189,15 @@
                     "scale": 3,
                     "orbit": {
                         "orbitDistance": {
-                            "x": 70,
+                            "x": 75,
                             "y": 0,
-                            "z": 70
+                            "z": 75
                         },
                         "orbitVelocity": 0.0001
+                    },
+                    "ring":{
+                        "width":3,
+                        "textureImage":"solarbodies/uranus_ring.png"
                     }
                 },
                 {
@@ -199,9 +207,9 @@
                     "scale": 3,
                     "orbit": {
                         "orbitDistance": {
-                            "x": 80,
+                            "x": 85,
                             "y": 0,
-                            "z": 80
+                            "z": 85
                         },
                         "orbitVelocity": 0.00005
                     }

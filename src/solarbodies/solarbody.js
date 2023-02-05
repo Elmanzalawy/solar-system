@@ -21,6 +21,19 @@ class Solarbody{
         this.object = new THREE.Object3D();
         this.object.add(this.solarbody);
 
+        if(options.ring){
+            let innerRadius = this.solarbody.geometry.parameters.radius * options.scale * 1.3;
+            let outerRadius = innerRadius + options.ring.width;
+            this.ringGeometry = new THREE.RingGeometry(innerRadius, outerRadius, 32);
+            this.ringMaterial = options.ring?.material ?? new THREE.MeshBasicMaterial({
+                map: new THREE.TextureLoader().load(image(options.ring.textureImage)),
+                side: THREE.DoubleSide
+            });
+            this.ring = new THREE.Mesh(this.ringGeometry, this.ringMaterial);
+            this.ring.rotation.x = -0.5 * Math.PI;
+            this.object.add(this.ring)
+        }
+
         if(options.position){
             this.object.position.x = options.position.x;
             this.object.position.y = options.position.y;
@@ -36,6 +49,12 @@ class Solarbody{
             this.solarbody.position.x += this.orbit.orbitDistance.x;
             this.solarbody.position.y += this.orbit.orbitDistance.y;
             this.solarbody.position.z += this.orbit.orbitDistance.z;
+            
+            if(this.ring){
+                this.ring.position.x += this.orbit.orbitDistance.x;
+                this.ring.position.y += this.orbit.orbitDistance.y;
+                this.ring.position.z += this.orbit.orbitDistance.z;
+            }
             
             this.object.position.x = this.orbit.solarbody.position.x;
             this.object.position.y = this.orbit.solarbody.position.y;

@@ -8,7 +8,7 @@ function dimensions() {
 };
 
 function asset(filepath) {
-    var root = env.getHost() ?? document.location.origin;
+    var root = document.location.origin; //env.getHost()
     return `${root}/storage/${filepath}`;
 }
 
