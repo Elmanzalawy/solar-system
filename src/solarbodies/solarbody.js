@@ -23,11 +23,11 @@ class Solarbody{
 
         // add random rotation
         this.object.rotation.y += Math.random() * 100;
-        
+
         if(options.ring){
             let innerRadius = this.solarbody.geometry.parameters.radius * options.scale * 1.3;
             let outerRadius = innerRadius + options.ring.width;
-            this.ringGeometry = new THREE.RingGeometry(innerRadius, outerRadius, 32);
+            this.ringGeometry = new THREE.RingGeometry(innerRadius, outerRadius, 64);
             this.ringMaterial = options.ring?.material ?? new THREE.MeshBasicMaterial({
                 map: new THREE.TextureLoader().load(image(options.ring.textureImage)),
                 side: THREE.DoubleSide
