@@ -21,6 +21,9 @@ class Solarbody{
         this.object = new THREE.Object3D();
         this.object.add(this.solarbody);
 
+        // add random rotation
+        this.object.rotation.y += Math.random() * 100;
+        
         if(options.ring){
             let innerRadius = this.solarbody.geometry.parameters.radius * options.scale * 1.3;
             let outerRadius = innerRadius + options.ring.width;
