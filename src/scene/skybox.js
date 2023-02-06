@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { image } from '../util';
 
 const skyBoxes = [
     'skybox1',
@@ -9,7 +10,7 @@ class Skybox {
 
     constructor(folderName) {
         this.folderName = folderName
-        this.baseFolderName = `../../storage/images/skyboxes/${this.folderName}/`;
+        this.baseFolderName = image(`skyboxes/${this.folderName}/`);
 
         return this.render();
     }
