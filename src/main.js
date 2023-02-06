@@ -11,7 +11,7 @@ const canvas = document.querySelector('#webgl');
 const scene = new THREE.Scene();
 
 // Light
-const light = new THREE.PointLight(0xffffff, 2, 300, 1);
+const light = new THREE.PointLight(0xffffff, 2, 500, 1);
 light.position.set(0, 0, 0);
 scene.add(light);
 

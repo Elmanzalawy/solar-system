@@ -6,7 +6,7 @@ import atmosphereFragmentShader from '../../storage/shaders/atmosphereFragment.g
 class Solarbody{
     constructor(options){
         this.type = options.type ?? "solarbody";
-        this.sphereGeometry = options?.geometry ?? new THREE.SphereGeometry(1, 64, 64);
+        this.sphereGeometry = options?.geometry ?? new THREE.SphereGeometry(3, 64, 64);
 
         if(getMobileOperatingSystem() == "Android"){
             this.material = options?.material ?? new THREE.MeshBasicMaterial({
@@ -72,7 +72,7 @@ class Solarbody{
         //create atmosphere
         const atmosphere = new THREE.Mesh
         (
-            new THREE.SphereGeometry(0.9,50,50),
+            new THREE.SphereGeometry(3,50,50),
             new THREE.ShaderMaterial({
                 vertexShader: atmosphereVertexShader,
                 fragmentShader: atmosphereFragmentShader,
@@ -80,7 +80,7 @@ class Solarbody{
                 side: THREE.BackSide
             })
         )
-        atmosphere.scale.set(1.1, 1.1, 1.1)
+        atmosphere.scale.set(1, 1, 1)
         this.solarbody.add(atmosphere)     
     }
 
