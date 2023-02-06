@@ -9,7 +9,11 @@ function dimensions() {
 
 function asset(filepath) {
     var root = document.location.origin; //env.getHost()
-    return `${root}/storage/${filepath}`;
+    if(env.storageDriver() == 's3'){
+        return `https://demo-mohamed-s3-bucket-2022.s3.eu-south-1.amazonaws.com/solar-system/${filepath}`;
+    }else{
+        return `${root}/storage/${filepath}`;
+    }
 }
 
 function image(filepath) {
