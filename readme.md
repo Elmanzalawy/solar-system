@@ -1,6 +1,11 @@
 ## About
 Solar System Sim is a web app designed to explore the solar system in an interactive 3D environment.
 
+## Installation
+- Clone this repository by clicking on `Code` button, or run `gh repo clone Elmanzalawy/solar-system-simulator` in a terminal.
+- run `npm install` to install node modules.
+- run `npm run dev` to serve the application. Click the link from the terminal to open the app in local browser.
+
 ## Usage
 
 #### Mobile
